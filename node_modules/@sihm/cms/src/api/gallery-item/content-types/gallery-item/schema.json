@@ -1,0 +1,13 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gallery_items",
+  "info": { "singularName": "gallery-item", "pluralName": "gallery-items", "displayName": "Gallery Item" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string" },
+    "category": { "type": "enumeration", "enum": ["Campus", "Kitchen", "Classroom", "Events", "Student Life", "Video"] },
+    "media": { "type": "media", "multiple": false, "allowedTypes": ["images", "videos"] },
+    "videoUrl": { "type": "string" },
+    "caption": { "type": "text" }
+  }
+}

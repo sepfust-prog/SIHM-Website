@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faculty_members",
+  "info": { "singularName": "faculty", "pluralName": "faculty", "displayName": "Faculty" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "designation": { "type": "string" },
+    "department": { "type": "string" },
+    "bio": { "type": "richtext" },
+    "achievements": { "type": "richtext" },
+    "email": { "type": "email" },
+    "linkedin": { "type": "string" },
+    "photo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
+  }
+}

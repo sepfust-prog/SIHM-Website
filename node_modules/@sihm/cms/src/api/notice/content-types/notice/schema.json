@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notices",
+  "info": { "singularName": "notice", "pluralName": "notices", "displayName": "Notice" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title" },
+    "date": { "type": "date" },
+    "content": { "type": "richtext" },
+    "attachment": { "type": "media", "multiple": false, "allowedTypes": ["files"] },
+    "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
+  }
+}

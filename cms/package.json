@@ -1,0 +1,30 @@
+{
+  "name": "@sihm/cms",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build"
+  },
+  "dependencies": {
+    "@strapi/plugin-cloud": "^4.25.20",
+    "@strapi/plugin-i18n": "^4.25.20",
+    "@strapi/plugin-users-permissions": "^4.25.20",
+    "@strapi/strapi": "^4.25.20",
+    "better-sqlite3": "^11.7.0",
+    "date-fns": "^2.30.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^5.3.4",
+    "styled-components": "^5.3.11"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "sihm-dimapur-cms"
+  }
+}

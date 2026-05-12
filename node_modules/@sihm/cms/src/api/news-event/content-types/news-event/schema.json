@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_events",
+  "info": { "singularName": "news-event", "pluralName": "news-events", "displayName": "News & Event" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "category": { "type": "enumeration", "enum": ["News", "Event", "Circulars", "Notices", "Admission", "Examination"] },
+    "date": { "type": "date" },
+    "excerpt": { "type": "text" },
+    "content": { "type": "richtext" },
+    "cover": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "attachments": { "type": "media", "multiple": true, "allowedTypes": ["files"] },
+    "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
+  }
+}

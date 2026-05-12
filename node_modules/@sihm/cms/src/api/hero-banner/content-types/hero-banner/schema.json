@@ -1,0 +1,15 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hero_banners",
+  "info": { "singularName": "hero-banner", "pluralName": "hero-banners", "displayName": "Hero Banner" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "ctaLabel": { "type": "string" },
+    "ctaUrl": { "type": "string" },
+    "media": { "type": "media", "multiple": false, "allowedTypes": ["images", "videos"] },
+    "order": { "type": "integer", "default": 0 }
+  }
+}
