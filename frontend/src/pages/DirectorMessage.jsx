@@ -1,11 +1,29 @@
+import { useEffect, useState } from 'react';
 import CTASection from '../components/CTASection';
 import PageHero from '../components/PageHero';
 import SEO from '../components/SEO';
-import { faculty } from '../data/siteData';
+import { faculty as fallbackFaculty } from '../data/siteData';
+import { getPrincipalFromFaculty, loadFacultyList, normalizeFacultyList } from '../lib/faculty';
 import { pageSeo } from '../lib/seo';
 
 export default function DirectorMessage() {
-  const principal = faculty[0];
+  const [faculty, setFaculty] = useState(() => normalizeFacultyList(fallbackFaculty));
+
+  useEffect(() => {
+    let active = true;
+
+    loadFacultyList().then((items) => {
+      if (active) {
+        setFaculty(items);
+      }
+    });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const principal = getPrincipalFromFaculty(faculty) || {};
 
   return (
     <>
@@ -25,15 +43,19 @@ export default function DirectorMessage() {
         <div className="container-editorial grid gap-12 lg:grid-cols-[320px_1fr] lg:items-start">
           <aside className="scroll-reveal bg-white p-7 shadow-[0_24px_80px_rgba(16,19,26,.08)]">
             <div className="image-lift aspect-[4/5] overflow-hidden bg-slate-100">
-              <img className="h-full w-full object-cover" src={principal.image} alt="Hospitality learning environment at SIHM Dimapur" />
+              <img
+                className="h-full w-full object-cover"
+                src={principal.image || '/faculty/deepak-srivastava.jpeg'}
+                alt={principal.name || 'Principal of SIHM Dimapur'}
+              />
             </div>
-            <h2 className="mt-6 font-editorial text-3xl font-semibold text-ink">{principal.name}</h2>
-            <p className="mt-2 text-sm font-bold uppercase tracking-[.16em] text-slate-500">{principal.title}</p>
+            <h2 className="mt-6 font-editorial text-3xl font-semibold text-ink">{principal.name || 'Deepak Srivastava'}</h2>
+            <p className="mt-2 text-sm font-bold uppercase tracking-[.16em] text-slate-500">{principal.designation || principal.title || 'Principal'}</p>
           </aside>
 
           <article className="scroll-reveal bg-white p-8 shadow-[0_24px_80px_rgba(16,19,26,.08)] md:p-12">
             <p className="font-editorial text-3xl font-semibold leading-relaxed text-ink md:text-4xl">
-              “Hospitality education is not only about learning an operation; it is about developing the discipline, confidence, and generosity to serve people well.”
+              "Hospitality education is not only about learning an operation; it is about developing the discipline, confidence, and generosity to serve people well."
             </p>
             <div className="mt-8 space-y-5 text-lg leading-8 text-slate-600">
               <p>Welcome to the State Institute of Hotel Management, Dimapur. Our purpose is to help students transform their interest in hospitality into professional ability and lasting career confidence.</p>
@@ -42,8 +64,8 @@ export default function DirectorMessage() {
               <p>I invite students and families to explore our programs, visit our campus, and discover the opportunities that hospitality education can open.</p>
             </div>
             <div className="mt-9 border-t border-black/12 pt-6">
-              <p className="font-editorial text-2xl font-semibold text-ink">{principal.name}</p>
-              <p className="mt-1 text-sm font-semibold text-slate-500">{principal.title}, SIHM Dimapur</p>
+              <p className="font-editorial text-2xl font-semibold text-ink">{principal.name || 'Deepak Srivastava'}</p>
+              <p className="mt-1 text-sm font-semibold text-slate-500">{principal.designation || principal.title || 'Principal'}, SIHM Dimapur</p>
             </div>
           </article>
         </div>

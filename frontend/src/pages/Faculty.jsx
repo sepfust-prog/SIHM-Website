@@ -1,10 +1,28 @@
+import { useEffect, useState } from 'react';
 import FacultyCard from '../components/FacultyCard';
 import PageHero from '../components/PageHero';
 import SEO from '../components/SEO';
-import { faculty } from '../data/siteData';
+import { faculty as fallbackFaculty } from '../data/siteData';
+import { loadFacultyList, normalizeFacultyList } from '../lib/faculty';
 import { pageSeo } from '../lib/seo';
 
 export default function Faculty() {
+  const [faculty, setFaculty] = useState(() => normalizeFacultyList(fallbackFaculty));
+
+  useEffect(() => {
+    let active = true;
+
+    loadFacultyList().then((items) => {
+      if (active) {
+        setFaculty(items);
+      }
+    });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <>
       <SEO seo={pageSeo('Faculty', 'Faculty profile cards, academic achievements, and hospitality expertise at SIHM Dimapur.', '/faculty')} />
@@ -16,7 +34,13 @@ export default function Faculty() {
       />
       <section className="page-band bg-[#f7f3eb]">
         <div className="container-editorial">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{faculty.map((person, index) => <div className="scroll-reveal" style={{ transitionDelay: `${index * 80}ms` }} key={person.name}><FacultyCard person={person} /></div>)}</div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {faculty.map((person, index) => (
+              <div className="scroll-reveal" style={{ transitionDelay: `${index * 80}ms` }} key={person.id || person.name}>
+                <FacultyCard person={person} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

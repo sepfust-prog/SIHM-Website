@@ -6,6 +6,7 @@ export const navItems = [
     children: [
       { label: 'Overview', path: '/about/overview' },
       { label: "Director's Message", path: '/about/directors-message' },
+      { label: 'Faculty', path: '/faculty' },
       { label: 'Vision & Mission', path: '/about#vision-mission' },
       { label: 'Infrastructure', path: '/facilities' }
     ]
@@ -174,9 +175,54 @@ export const testimonials = [
 ];
 
 export const faculty = [
-  { name: 'Indranil Roy Choudhury', title: 'Principal I/C', subject: 'Hospitality Leadership', image: '/campus/optimized/classroom-md.jpg' },
-  { name: 'Senior Culinary Faculty', title: 'Faculty', subject: 'Food Production', image: '/campus/optimized/kitchen-md.jpg' },
-  { name: 'Food & Beverage Mentor', title: 'Faculty', subject: 'Restaurant Service', image: '/campus/optimized/restaurant-md.jpg' }
+  {
+    name: 'Deepak Srivastava',
+    designation: 'Principal',
+    title: 'Principal',
+    subject: 'Institutional Leadership',
+    about: 'Leads the institute with a focus on academic discipline, student mentoring, and hospitality excellence.',
+    image: '/faculty/deepak-srivastava.jpeg'
+  },
+  {
+    name: 'Indranil Roy Chowdhary',
+    designation: 'Head of Department',
+    title: 'Head of Department',
+    subject: 'Hospitality Leadership',
+    about: 'Guides department planning and hospitality training with an emphasis on standards, consistency, and industry readiness.',
+    image: '/faculty/indranil-roy-chowdhary.jpg'
+  },
+  {
+    name: 'Himanshu Mishra',
+    designation: 'Deputy HOD',
+    title: 'Deputy HOD',
+    subject: 'Academic Coordination',
+    about: 'Supports departmental coordination, practical training, and student development across hospitality learning spaces.',
+    image: '/faculty/himanshu-mishra.jpeg'
+  },
+  {
+    name: 'Avirup Mallick',
+    designation: 'Assistant Lecturer',
+    title: 'Assistant Lecturer',
+    subject: 'Teaching Support',
+    about: 'Supports classroom learning and practical sessions with a student-centered approach to hospitality education.',
+    image: '/faculty/avirup-mallick.jpeg'
+  },
+  {
+    name: 'Meghna Bandyopadhyay',
+    designation: 'Assistant Lecturer',
+    title: 'Assistant Lecturer',
+    subject: 'Teaching Support',
+    about: 'Supports hospitality teaching and mentoring with a focus on communication, confidence, and professional growth.',
+    image: '/faculty/meghna-bandyopadhyay.jpeg'
+  },
+  {
+    name: 'Ruth Jamir',
+    designation: 'Adjunct Faculty',
+    title: 'Adjunct Faculty',
+    subject: 'Guest Service Training',
+    about: 'Contributes to guest-facing service training and professional etiquette through practical hospitality exposure.',
+    image: '/faculty/ruth-jamir.jpeg'
+  }
 ];
 
 export const faqs = [
