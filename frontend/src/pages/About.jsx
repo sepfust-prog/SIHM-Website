@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero';
 import SEO from '../components/SEO';
 import SectionHeader from '../components/SectionHeader';
 import { pageSeo } from '../lib/seo';
+import { Link } from 'react-router-dom';
 
 const values = ['Hospitality', 'Respect', 'Service', 'Sustainability', 'Excellence', 'Equality'];
 
@@ -29,7 +30,7 @@ export default function About() {
             ]} />
           </div>
         </div>
-        <div className="grid gap-5 scroll-reveal">
+        <div id="vision-mission" className="grid scroll-mt-32 gap-5 scroll-reveal">
           <article className="editorial-card p-8">
             <h3 className="font-editorial text-3xl font-semibold text-ink">Vision</h3>
             <p className="mt-4 leading-8 text-slate-600">To be amongst the top hotel management institutes in the country and provide students with outstanding skills across hotel and hospitality sectors.</p>
@@ -41,6 +42,7 @@ export default function About() {
           <article className="editorial-card p-8">
             <h3 className="font-editorial text-3xl font-semibold text-ink">Director / Principal Message</h3>
             <p className="mt-4 leading-8 text-slate-600">SIHM Dimapur is committed to disciplined hospitality education, real-world practice, and preparing students for opportunities within India and abroad.</p>
+            <Link className="mt-5 inline-block text-sm font-bold uppercase tracking-[.14em] text-ink underline decoration-gold decoration-2 underline-offset-4" to="/about/directors-message">Read the full message</Link>
           </article>
         </div>
       </div>

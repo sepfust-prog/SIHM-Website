@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.sihmdimapur.com/</loc></url>
   <url><loc>https://www.sihmdimapur.com/about</loc></url>
+  <url><loc>https://www.sihmdimapur.com/about/overview</loc></url>
+  <url><loc>https://www.sihmdimapur.com/about/directors-message</loc></url>
   <url><loc>https://www.sihmdimapur.com/faculty</loc></url>
   <url><loc>https://www.sihmdimapur.com/our-team</loc></url>
   <url><loc>https://www.sihmdimapur.com/latest-updates</loc></url>
@@ -12,4 +14,7 @@
   <url><loc>https://www.sihmdimapur.com/news-events</loc></url>
   <url><loc>https://www.sihmdimapur.com/contact-us</loc></url>
   <url><loc>https://www.sihmdimapur.com/admissions</loc></url>
+  <url><loc>https://www.sihmdimapur.com/students</loc></url>
+  <url><loc>https://www.sihmdimapur.com/circulars</loc></url>
+  <url><loc>https://www.sihmdimapur.com/downloads</loc></url>
 </urlset>

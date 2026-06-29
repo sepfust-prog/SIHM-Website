@@ -5,10 +5,10 @@ import { faculty, news } from '../data/siteData';
 import { pageSeo } from '../lib/seo';
 import FacultyCard from '../components/FacultyCard';
 
-export default function SimplePage({ title, type }) {
+export default function SimplePage({ title, type, path }) {
   return (
     <>
-      <SEO seo={pageSeo(title, `${title} at State Institute of Hotel Management, Dimapur.`)} />
+      <SEO seo={pageSeo(title, `${title} from State Institute of Hotel Management, Dimapur. View current institutional information and resources.`, path)} />
       <PageHero eyebrow="SIHM Dimapur" title={title} image="/campus/optimized/campus-building-wide-lg.jpg" />
       <section className="container-editorial page-band">
         {type === 'team' && <div className="grid gap-6 md:grid-cols-3">{faculty.map((person, index) => <div className="scroll-reveal" style={{ transitionDelay: `${index * 80}ms` }} key={person.name}><FacultyCard person={person} /></div>)}</div>}

@@ -4,9 +4,9 @@ export const navItems = [
     label: 'About SIHM',
     path: '/about',
     children: [
-      { label: 'Overview', path: '/about' },
-      { label: 'Director Message', path: '/about' },
-      { label: 'Vision & Mission', path: '/about' },
+      { label: 'Overview', path: '/about/overview' },
+      { label: "Director's Message", path: '/about/directors-message' },
+      { label: 'Vision & Mission', path: '/about#vision-mission' },
       { label: 'Infrastructure', path: '/facilities' }
     ]
   },
@@ -14,9 +14,9 @@ export const navItems = [
     label: 'Academic Programs',
     path: '/academic-and-programs',
     children: [
-      { label: 'Degree Programs', path: '/academic-and-programs' },
-      { label: 'Diploma Programs', path: '/academic-and-programs' },
-      { label: 'Short Term Courses', path: '/academic-and-programs' }
+      { label: 'Degree Programs', path: '/academic-and-programs#degree-programs' },
+      { label: 'Diploma Programs', path: '/academic-and-programs#diploma-programs' },
+      { label: 'Short Term & Certificate Courses', path: '/academic-and-programs#short-term-certificate-courses' }
     ]
   },
   { label: 'Campus Life', path: '/gallery' },

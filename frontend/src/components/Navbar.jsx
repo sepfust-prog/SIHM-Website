@@ -63,7 +63,7 @@ export default function Navbar() {
               </NavLink>
               {item.children && (
                 <div className="invisible absolute left-1/2 top-full w-[min(560px,calc(100vw-48px))] -translate-x-1/2 translate-y-4 border border-black/10 bg-white p-5 text-ink opacity-0 shadow-[0_24px_60px_rgba(0,0,0,.18)] transition duration-300 group-hover:visible group-hover:translate-y-1 group-hover:opacity-100">
-                  <p className="lr-eyebrow mb-4 text-slate-500">About SIHM</p>
+                  <p className="lr-eyebrow mb-4 text-slate-500">Explore {item.label}</p>
                   <div className="grid grid-cols-2 gap-2">
                     {item.children.map((child) => (
                       <Link className="group/link border border-black/10 bg-white px-4 py-4 text-sm font-semibold text-ink transition hover:border-ink" key={child.path} to={child.path}>

@@ -8,6 +8,8 @@ import FloatingButtons from './components/FloatingButtons';
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
+const Overview = lazy(() => import('./pages/Overview'));
+const DirectorMessage = lazy(() => import('./pages/DirectorMessage'));
 const Academics = lazy(() => import('./pages/Academics'));
 const Facilities = lazy(() => import('./pages/Facilities'));
 const Gallery = lazy(() => import('./pages/Gallery'));
@@ -18,6 +20,7 @@ const Faculty = lazy(() => import('./pages/Faculty'));
 const Admissions = lazy(() => import('./pages/Admissions'));
 const Students = lazy(() => import('./pages/Students'));
 const SimplePage = lazy(() => import('./pages/SimplePage'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,6 +30,28 @@ export default function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!location.hash) return undefined;
+
+    const targetId = decodeURIComponent(location.hash.slice(1));
+    const scrollToTarget = () => {
+      const target = document.getElementById(targetId);
+      if (!target) return false;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return true;
+    };
+
+    if (scrollToTarget()) return undefined;
+
+    // Lazy route chunks may render after the location changes.
+    const mutationObserver = new MutationObserver(() => {
+      if (scrollToTarget()) mutationObserver.disconnect();
+    });
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => mutationObserver.disconnect();
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const sections = gsap.utils.toArray('[data-parallax]');
@@ -95,6 +120,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/about/overview" element={<Overview />} />
+            <Route path="/about/directors-message" element={<DirectorMessage />} />
             <Route path="/academic-and-programs" element={<Academics />} />
             <Route path="/facilities" element={<Facilities />} />
             <Route path="/gallery" element={<Gallery />} />
@@ -104,10 +131,11 @@ export default function App() {
             <Route path="/faculty" element={<Faculty />} />
             <Route path="/admissions" element={<Admissions />} />
             <Route path="/students" element={<Students />} />
-            <Route path="/our-team" element={<SimplePage title="Our Team" type="team" />} />
-            <Route path="/latest-updates" element={<SimplePage title="Latest Updates" type="updates" />} />
-            <Route path="/circulars" element={<SimplePage title="Circulars" type="updates" />} />
-            <Route path="/downloads" element={<SimplePage title="Downloads" type="downloads" />} />
+            <Route path="/our-team" element={<SimplePage title="Our Team" type="team" path="/our-team" />} />
+            <Route path="/latest-updates" element={<SimplePage title="Latest Updates" type="updates" path="/latest-updates" />} />
+            <Route path="/circulars" element={<SimplePage title="Circulars" type="updates" path="/circulars" />} />
+            <Route path="/downloads" element={<SimplePage title="Downloads" type="downloads" path="/downloads" />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>
