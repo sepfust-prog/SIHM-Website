@@ -93,7 +93,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="fixed inset-0 top-[76px] z-40 bg-white px-5 py-8 text-ink backdrop-blur-[8px] xl:hidden">
+        <div className="fixed left-0 right-0 top-[76px] z-40 min-h-[calc(100vh-76px)] bg-white px-5 py-8 text-ink overflow-y-auto xl:hidden">
           <div className="mx-auto grid max-w-xl gap-2">
             {navItems.map((item) => (
               <div key={item.path} className="border-b border-black/10 py-3">

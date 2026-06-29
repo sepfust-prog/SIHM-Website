@@ -11,6 +11,7 @@ const About = lazy(() => import('./pages/About'));
 const Overview = lazy(() => import('./pages/Overview'));
 const DirectorMessage = lazy(() => import('./pages/DirectorMessage'));
 const Academics = lazy(() => import('./pages/Academics'));
+const CourseDetail = lazy(() => import('./pages/CourseDetail'));
 const Facilities = lazy(() => import('./pages/Facilities'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Placements = lazy(() => import('./pages/Placements'));
@@ -123,6 +124,7 @@ export default function App() {
             <Route path="/about/overview" element={<Overview />} />
             <Route path="/about/directors-message" element={<DirectorMessage />} />
             <Route path="/academic-and-programs" element={<Academics />} />
+            <Route path="/courses/:slug" element={<CourseDetail />} />
             <Route path="/facilities" element={<Facilities />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/placements" element={<Placements />} />

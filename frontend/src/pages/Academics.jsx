@@ -1,36 +1,14 @@
 import { ChevronDown, Download } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import CourseCard from '../components/CourseCard';
 import CTASection from '../components/CTASection';
 import InquiryForm from '../components/InquiryForm';
 import PageHero from '../components/PageHero';
 import SEO from '../components/SEO';
 import SectionHeader from '../components/SectionHeader';
-import { courses } from '../data/siteData';
+import { courses as fallbackCourses } from '../data/siteData';
+import { loadCourses, normalizeCourseList } from '../lib/courses';
 import { pageSeo } from '../lib/seo';
-
-const programSections = [
-  {
-    id: 'degree-programs',
-    eyebrow: 'Degree Program',
-    title: 'Degree Program',
-    description: 'A comprehensive undergraduate pathway combining hospitality management theory, practical training, and industry exposure.',
-    courses: courses.filter((course) => course.type === 'Degree Program')
-  },
-  {
-    id: 'diploma-programs',
-    eyebrow: 'Diploma Programs',
-    title: 'Diploma Programs',
-    description: 'Focused professional programs that build job-ready operational skill through intensive practical learning.',
-    courses: courses.filter((course) => course.type === 'Diploma Course')
-  },
-  {
-    id: 'short-term-certificate-courses',
-    eyebrow: 'Skill Development',
-    title: 'Short-Term and Certificate Courses',
-    description: 'Accessible, skill-led courses for learners seeking focused hospitality training and faster entry into the industry.',
-    courses: courses.filter((course) => ['Short Term Course', 'Certificate Program'].includes(course.type))
-  }
-];
 
 function CourseDetails({ course }) {
   return (
@@ -58,6 +36,46 @@ function CourseDetails({ course }) {
 }
 
 export default function Academics() {
+  const [courses, setCourses] = useState(() => normalizeCourseList(fallbackCourses));
+
+  useEffect(() => {
+    let active = true;
+
+    loadCourses().then((items) => {
+      if (active) {
+        setCourses(items);
+      }
+    });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const programSections = [
+    {
+      id: 'degree-programs',
+      eyebrow: 'Degree Program',
+      title: 'Degree Program',
+      description: 'A comprehensive undergraduate pathway combining hospitality management theory, practical training, and industry exposure.',
+      courses: courses.filter((course) => course.type === 'Degree Program')
+    },
+    {
+      id: 'diploma-programs',
+      eyebrow: 'Diploma Programs',
+      title: 'Diploma Programs',
+      description: 'Focused professional programs that build job-ready operational skill through intensive practical learning.',
+      courses: courses.filter((course) => course.type === 'Diploma Course')
+    },
+    {
+      id: 'short-term-certificate-courses',
+      eyebrow: 'Skill Development',
+      title: 'Short-Term and Certificate Courses',
+      description: 'Accessible, skill-led courses for learners seeking focused hospitality training and faster entry into the industry.',
+      courses: courses.filter((course) => ['Short Term Course', 'Certificate Program'].includes(course.type))
+    }
+  ];
+
   return (
     <>
       <SEO seo={pageSeo(
@@ -98,13 +116,13 @@ export default function Academics() {
                 <SectionHeader eyebrow={section.eyebrow} title={section.title} text={section.description} />
                 <div className={`mt-10 grid gap-6 ${section.courses.length > 1 ? 'md:grid-cols-2' : 'max-w-2xl'}`}>
                   {section.courses.map((course, index) => (
-                    <div className="scroll-reveal" style={{ transitionDelay: `${index * 90}ms` }} key={course.title}>
+                    <div className="scroll-reveal" style={{ transitionDelay: `${index * 90}ms` }} key={course.id || course.title}>
                       <CourseCard course={course} />
                     </div>
                   ))}
                 </div>
                 <div className="mt-8 grid gap-4">
-                  {section.courses.map((course) => <CourseDetails course={course} key={course.title} />)}
+                  {section.courses.map((course) => <CourseDetails course={course} key={course.id || course.title} />)}
                 </div>
               </section>
             ))}

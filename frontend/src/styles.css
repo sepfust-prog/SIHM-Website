@@ -63,7 +63,13 @@ main {
 }
 
 .page-band {
-  padding-block: clamp(4.5rem, 8vw, 8rem);
+  padding-block: clamp(3rem, 6vw, 8rem);
+}
+
+@media (max-width: 640px) {
+  .page-band {
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+  }
 }
 
 .editorial-card {
@@ -102,28 +108,43 @@ main {
 }
 
 .lr-eyebrow {
-  font-size: .72rem;
+  font-size: .65rem;
   font-weight: 800;
   letter-spacing: .28em;
   text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .lr-eyebrow {
+    font-size: .72rem;
+  }
 }
 
 .lr-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: .75rem;
-  min-height: 3.25rem;
+  gap: .5rem;
+  min-height: 2.75rem;
   border: 1px solid #10131a;
   background: #10131a;
-  padding: .95rem 1.35rem;
-  font-size: .72rem;
+  padding: .7rem 1rem;
+  font-size: .65rem;
   font-weight: 800;
   letter-spacing: .18em;
   line-height: 1.2;
   text-transform: uppercase;
   color: #fff;
   transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+@media (min-width: 640px) {
+  .lr-button {
+    gap: .75rem;
+    min-height: 3.25rem;
+    padding: .95rem 1.35rem;
+    font-size: .72rem;
+  }
 }
 
 .lr-button-gold {

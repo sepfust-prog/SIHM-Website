@@ -48,7 +48,7 @@ export default function Home() {
     <div className="overflow-hidden bg-[#f7f3eb]">
       <SEO seo={pageSeo('State Institute of Hotel Management, Dimapur', 'Premium hospitality education at SIHM Dimapur with programs, campus life, admissions, and placements.')} />
 
-      <section className="relative min-h-[620px] overflow-hidden bg-ink text-white md:min-h-[760px] xl:min-h-screen">
+      <section className="relative min-h-[500px] overflow-hidden bg-ink text-white sm:min-h-[620px] md:min-h-[760px] xl:min-h-screen">
         <motion.img
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
@@ -57,27 +57,27 @@ export default function Home() {
           src="/campus/students-front-campus.jpg"
           alt="Hospitality service training"
           loading="eager"
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,7,10,.94)_0%,rgba(3,7,10,.76)_38%,rgba(3,7,10,.18)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#061a27] to-transparent" />
-        <div className="container-editorial relative flex min-h-[620px] items-center pt-24 md:min-h-[760px] md:pt-28 xl:min-h-screen">
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#061a27] to-transparent sm:h-40" />
+        <div className="container-editorial relative flex min-h-[500px] items-center pt-20 sm:min-h-[620px] sm:pt-24 md:min-h-[760px] md:pt-28 xl:min-h-screen">
           <motion.div initial="hidden" animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }} className="max-w-3xl">
             <motion.div variants={reveal}><Eyebrow light>Learn to serve. Lead the world.</Eyebrow></motion.div>
-            <motion.h1 variants={reveal} className="mt-6 font-editorial text-[42px] font-semibold leading-[.96] text-white min-[390px]:text-[48px] md:text-[76px] xl:text-[96px]">
+            <motion.h1 variants={reveal} className="mt-4 font-editorial text-3xl font-semibold leading-[1] text-white sm:mt-6 sm:text-[42px] md:text-[64px] lg:text-[76px] xl:text-[96px]">
               Where Passion Becomes Hospitality Leadership.
             </motion.h1>
-            <motion.p variants={reveal} className="mt-7 max-w-xl text-base leading-8 text-white/78">
+            <motion.p variants={reveal} className="mt-5 max-w-xl text-sm leading-7 text-white/78 sm:mt-7 sm:text-base sm:leading-8">
               Nurturing future hospitality professionals with practical exposure, professional grooming, and a spirit of service.
             </motion.p>
-            <motion.div variants={reveal} className="mt-9 flex flex-wrap gap-4">
-              <Link className="lr-button lr-button-gold group" to="/academic-and-programs">Explore Programs <ArrowRight className="transition group-hover:translate-x-1" size={17} /></Link>
-              <Link className="lr-button border-white/58 bg-transparent text-white hover:bg-white hover:text-ink" to="/gallery">Life at SIHM <ArrowRight size={17} /></Link>
+            <motion.div variants={reveal} className="mt-6 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
+              <Link className="lr-button lr-button-gold group text-[10px] sm:text-[.72rem]" to="/academic-and-programs">Explore Programs <ArrowRight className="transition group-hover:translate-x-1" size={17} /></Link>
+              <Link className="lr-button border-white/58 bg-transparent text-white hover:bg-white hover:text-ink text-[10px] sm:text-[.72rem]" to="/gallery">Life at SIHM <ArrowRight size={17} /></Link>
             </motion.div>
           </motion.div>
         </div>
-        <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/58 md:flex">
+        <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/58 sm:bottom-8 md:flex">
           <span className="grid h-8 w-8 place-items-center rounded-full border border-white/38 text-xs">i</span>
           <span className="text-xs">Scroll to explore</span>
         </div>
