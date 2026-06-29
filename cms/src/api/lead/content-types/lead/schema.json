@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leads",
+  "info": {
+    "singularName": "lead",
+    "pluralName": "leads",
+    "displayName": "Lead",
+    "description": "Admission and website enquiries submitted from the public website"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "firstName": { "type": "string", "required": true },
+    "lastName": { "type": "string", "required": true },
+    "phone": { "type": "string", "required": true },
+    "email": { "type": "email", "required": true },
+    "city": { "type": "string", "required": true },
+    "program": { "type": "string" },
+    "message": { "type": "text" },
+    "page": { "type": "string" },
+    "source": { "type": "string", "default": "website" }
+  }
+}

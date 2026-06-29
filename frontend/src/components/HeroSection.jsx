@@ -7,13 +7,13 @@ export default function HeroSection({ banners }) {
   return (
     <section className="relative min-h-[92vh] overflow-hidden bg-navy text-white">
       <img className="absolute inset-0 h-full w-full object-cover" src={banner.image} alt="" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/78 to-black/25" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,43,.88)_0%,rgba(7,21,43,.72)_48%,rgba(0,0,0,.38)_100%)]" />
       <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-white to-transparent" />
       <div className="container-premium relative flex min-h-[92vh] items-center pt-28">
         <div className="max-w-4xl">
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="mb-5 inline-flex rounded-full border border-white/25 px-5 py-2 text-sm font-bold uppercase tracking-[.22em] text-gold">{banner.eyebrow}</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .08 }} className="font-heading text-5xl font-black leading-[1.02] md:text-7xl">{banner.title}</motion.h1>
-          <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .16 }} className="mt-7 max-w-2xl text-lg leading-8 text-white/80">{banner.description}</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .08 }} className="font-heading text-5xl font-black leading-[1.02] text-white drop-shadow-[0_8px_26px_rgba(0,0,0,.58)] md:text-7xl">{banner.title}</motion.h1>
+          <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .16 }} className="mt-7 max-w-2xl text-lg font-semibold leading-8 text-white drop-shadow-[0_4px_18px_rgba(0,0,0,.55)]">{banner.description}</motion.p>
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .24 }} className="mt-9 flex flex-wrap gap-4">
             <Link to="/admissions" className="gold-gradient inline-flex items-center gap-2 rounded px-6 py-4 font-black text-navy shadow-premium">{banner.cta} <ArrowRight size={18} /></Link>
             <Link to="/gallery" className="glass inline-flex items-center gap-2 rounded px-6 py-4 font-bold text-white"><PlayCircle size={19} /> View Campus</Link>

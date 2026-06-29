@@ -1,6 +1,6 @@
 import NewsCard from '../components/NewsCard';
+import PageHero from '../components/PageHero';
 import SEO from '../components/SEO';
-import SectionHeader from '../components/SectionHeader';
 import { faculty, news } from '../data/siteData';
 import { pageSeo } from '../lib/seo';
 import FacultyCard from '../components/FacultyCard';
@@ -9,11 +9,11 @@ export default function SimplePage({ title, type }) {
   return (
     <>
       <SEO seo={pageSeo(title, `${title} at State Institute of Hotel Management, Dimapur.`)} />
-      <section className="navy-gradient pb-24 pt-40 text-white"><div className="container-premium"><SectionHeader eyebrow="SIHM Dimapur" title={title} light /></div></section>
-      <section className="container-premium py-16">
-        {type === 'team' && <div className="grid gap-6 md:grid-cols-3">{faculty.map((person) => <FacultyCard person={person} key={person.name} />)}</div>}
-        {type === 'updates' && <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{news.concat(news).map((item, index) => <NewsCard item={item} key={`${item.title}-${index}`} />)}</div>}
-        {type === 'downloads' && <div className="grid gap-4 md:grid-cols-2"><button className="rounded bg-mist p-6 text-left font-heading text-xl font-black text-navy">Admission Form</button><button className="rounded bg-mist p-6 text-left font-heading text-xl font-black text-navy">Fee Structure</button><button className="rounded bg-mist p-6 text-left font-heading text-xl font-black text-navy">Brochure</button><button className="rounded bg-mist p-6 text-left font-heading text-xl font-black text-navy">Hostel Rules</button></div>}
+      <PageHero eyebrow="SIHM Dimapur" title={title} image="/campus/optimized/campus-building-wide-lg.jpg" />
+      <section className="container-editorial page-band">
+        {type === 'team' && <div className="grid gap-6 md:grid-cols-3">{faculty.map((person, index) => <div className="scroll-reveal" style={{ transitionDelay: `${index * 80}ms` }} key={person.name}><FacultyCard person={person} /></div>)}</div>}
+        {type === 'updates' && <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{news.concat(news).map((item, index) => <div className="scroll-reveal" style={{ transitionDelay: `${(index % 3) * 70}ms` }} key={`${item.title}-${index}`}><NewsCard item={item} /></div>)}</div>}
+        {type === 'downloads' && <div className="grid gap-4 md:grid-cols-2">{['Admission Form', 'Fee Structure', 'Brochure', 'Hostel Rules'].map((item) => <button className="theme-panel p-7 text-left font-editorial text-3xl font-semibold text-ink transition hover:-translate-y-1" key={item}>{item}</button>)}</div>}
       </section>
     </>
   );

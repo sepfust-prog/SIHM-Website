@@ -18,6 +18,7 @@ export function pageSeo(title, description, path = '/') {
         postalCode: '797116',
         addressCountry: 'IN'
       }
-    }
+    },
+    image: `${siteUrl}/campus/optimized/campus-building-wide-lg.jpg`
   };
 }

@@ -15,6 +15,7 @@
 - Faculty: faculty cards, profiles, achievements.
 - News & Events: campus news, circulars, admission notices, examination updates.
 - Notices: official circulars and downloadable attachments.
+- Student Notes: learning resources for the Students section. Add `heading`, `subHeading`, and upload one PDF or Word file in `file`.
 - Recruiters: placement logo carousel.
 - Placements: student placement outcomes.
 - Gallery Items: campus photos and videos.
@@ -25,6 +26,10 @@
 ## Media Guidance
 
 Use landscape images at 1600px wide for hero and section banners. Use compressed JPG/WebP wherever possible. Add descriptive alt text in the media name or caption.
+
+## Student Notes Permissions
+
+After creating or updating Student Notes, enable public `find` access for the Student Note collection in Strapi settings so the website can read published notes.
 
 ## SEO Guidance
 

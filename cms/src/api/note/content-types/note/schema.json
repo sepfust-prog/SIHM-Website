@@ -1,0 +1,11 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notes",
+  "info": { "singularName": "note", "pluralName": "notes", "displayName": "Student Note" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "heading": { "type": "string", "required": true },
+    "subHeading": { "type": "text" },
+    "file": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["files"] }
+  }
+}

@@ -1,21 +1,31 @@
 export const navItems = [
   { label: 'Home', path: '/' },
   {
-    label: 'About',
+    label: 'About SIHM',
     path: '/about',
     children: [
       { label: 'Overview', path: '/about' },
-      { label: 'Faculty', path: '/faculty' },
-      { label: 'Our Team', path: '/our-team' },
-      { label: 'Latest Updates', path: '/latest-updates' }
+      { label: 'Director Message', path: '/about' },
+      { label: 'Vision & Mission', path: '/about' },
+      { label: 'Infrastructure', path: '/facilities' }
     ]
   },
-  { label: 'Academic and Programs', path: '/academic-and-programs' },
+  {
+    label: 'Academic Programs',
+    path: '/academic-and-programs',
+    children: [
+      { label: 'Degree Programs', path: '/academic-and-programs' },
+      { label: 'Diploma Programs', path: '/academic-and-programs' },
+      { label: 'Short Term Courses', path: '/academic-and-programs' }
+    ]
+  },
+  { label: 'Campus Life', path: '/gallery' },
   { label: 'Facilities', path: '/facilities' },
-  { label: 'Gallery', path: '/gallery' },
   { label: 'Placements', path: '/placements' },
+  { label: 'Students', path: '/students' },
   { label: 'News & Events', path: '/news-events' },
-  { label: 'Contact Us', path: '/contact-us' }
+  { label: 'Admissions', path: '/admissions' },
+  { label: 'Contact', path: '/contact-us' }
 ];
 
 export const contact = {
@@ -33,14 +43,14 @@ export const heroBanners = [
     title: 'Getting Your Hospitality Career Started',
     description: 'A premium hospitality institute experience shaped around practical learning, professional grooming, and placement-led outcomes.',
     cta: 'Apply Now',
-    image: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1800&q=85'
+    image: '/campus/students-front-campus.jpg'
   },
   {
     eyebrow: 'B.Sc. HHA and Diploma Programs',
     title: 'Learn in Real Hotel Environments',
     description: 'Train in kitchens, front office labs, restaurant service spaces, classrooms, and campus facilities built for hospitality practice.',
     cta: 'Explore Courses',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1800&q=85'
+    image: '/campus/campus-front-wide.jpg'
   }
 ];
 
@@ -60,7 +70,7 @@ export const courses = [
     affiliation: 'National Council for Hotel Management and Catering Technology (NCHMCT)',
     award: 'Recognised and awarded by Jawaharlal Nehru University, New Delhi',
     fee: 'Total Rs 3,47,415 for 3 years, payable semester-wise',
-    image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=85',
+    image: '/campus/restaurant-training.png',
     benefits: ['State of art infrastructure', 'Qualified faculties', 'Hospitality industry linkages', 'Placement assistance in India and abroad'],
     careers: ['Hotels', 'Resort management', 'Kitchen management', 'Cruise lines', 'Institutional catering', 'Tourism corporations']
   },
@@ -72,7 +82,7 @@ export const courses = [
     affiliation: 'National Council for Hotel Management Catering Technology (NCHMCT)',
     award: 'Diploma issued by NCHMCT',
     fee: 'Rs 77,800',
-    image: 'https://images.unsplash.com/photo-1514986888952-8cd320577b68?auto=format&fit=crop&w=1200&q=85',
+    image: '/campus/kitchen-training.png',
     benefits: ['State of art kitchen and restaurant', '70% emphasis on practical training', 'Exposure to leading hotel chains'],
     careers: ['Food production', 'Hotel kitchens', 'Restaurants', 'Cruises', 'Industrial catering']
   },
@@ -84,19 +94,55 @@ export const courses = [
     affiliation: 'Under approval of NCHMCT',
     award: 'Certificate issued by NCHMCT',
     fee: 'Rs 33,200',
-    image: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1200&q=85',
+    image: '/campus/mock-bar-training.png',
     benefits: ['Restaurant and mock bar training', 'Hands-on service exposure', 'Industry internship orientation'],
     careers: ['Food and beverage service', 'Frontline hospitality', 'Restaurants', 'Hotels', 'Cruise hospitality']
+  },
+  {
+    title: 'Front Office Operations',
+    type: 'Certificate Program',
+    duration: '6 Months',
+    eligibility: '10th or 12th pass candidates with interest in guest relations',
+    affiliation: 'SIHM Dimapur professional training pathway',
+    award: 'Certificate issued by SIHM Dimapur',
+    fee: 'Contact admissions office',
+    image: '/campus/front-office-training.png',
+    benefits: ['Reservation practice', 'Guest handling', 'Billing and reception training', 'Communication confidence'],
+    careers: ['Front office associate', 'Guest relations', 'Reservations', 'Hotel reception']
+  },
+  {
+    title: 'Accommodation Operations',
+    type: 'Certificate Program',
+    duration: '6 Months',
+    eligibility: '10th or 12th pass candidates',
+    affiliation: 'SIHM Dimapur professional training pathway',
+    award: 'Certificate issued by SIHM Dimapur',
+    fee: 'Contact admissions office',
+    image: '/campus/housekeeping-training.png',
+    benefits: ['Housekeeping standards', 'Room presentation', 'Linen handling', 'Back-of-house discipline'],
+    careers: ['Housekeeping associate', 'Room division', 'Facility service', 'Hotel operations']
+  },
+  {
+    title: 'Bakery & Confectionery',
+    type: 'Short Term Course',
+    duration: '3 Months',
+    eligibility: 'Open to eligible hospitality aspirants',
+    affiliation: 'SIHM Dimapur skill development pathway',
+    award: 'Certificate issued by SIHM Dimapur',
+    fee: 'Contact admissions office',
+    image: '/campus/kitchen-training.png',
+    benefits: ['Bakery fundamentals', 'Dessert preparation', 'Production discipline', 'Entrepreneurial skill'],
+    careers: ['Bakery assistant', 'Pastry kitchen', 'Cafe operations', 'Entrepreneurship']
   }
 ];
 
 export const facilities = [
-  ['Multi-Cuisine Kitchen', 'Get hands-on experience with the latest equipment and techniques in a professional kitchen environment.', 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=85'],
-  ['Computer Lab', 'Access technology for projects, research, assignments, and modern hospitality systems learning.', 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85'],
-  ['Front Office', 'Learn guest relations, billing, reservations, and hotel desk operations in a simulated environment.', 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=85'],
-  ['Restaurant & Mock Bar', 'Practice restaurant and bar operations with a focus on service, etiquette, and guest experience.', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=85'],
-  ['Classrooms', 'Modern classrooms equipped for interactive teaching, presentations, and academic mentoring.', 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=85'],
-  ['Hostel', 'Separate boys and girls hostels with hygienic dining, safety, and student support.', 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=85']
+  ['Multi-Cuisine Kitchen', 'Get hands-on experience with the latest equipment and techniques in a professional kitchen environment.', '/campus/kitchen-training.png'],
+  ['Housekeeping Lab', 'Practice room care, presentation standards, housekeeping discipline, and operational attention to detail.', '/campus/housekeeping-training.png'],
+  ['Front Office', 'Learn guest relations, billing, reservations, and hotel desk operations in a simulated environment.', '/campus/front-office-training.png'],
+  ['Restaurant & Mock Bar', 'Practice restaurant and bar operations with a focus on service, etiquette, and guest experience.', '/campus/mock-bar-training.png'],
+  ['Classrooms', 'Modern classrooms equipped for interactive teaching, presentations, and academic mentoring.', '/campus/restaurant-training.png'],
+  ['Laundry', 'Learn garment care, linen handling, pressing, and back-of-house service support through practical exposure.', '/campus/laundry-training.png']
 ];
 
 export const news = [
@@ -107,12 +153,16 @@ export const news = [
 ];
 
 export const gallery = [
-  'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=85'
+  '/campus/students-front-campus.jpg',
+  '/campus/campus-front-wide.jpg',
+  '/campus/front-office-training.png',
+  '/campus/mock-bar-training.png',
+  '/campus/kitchen-training.png',
+  '/campus/restaurant-training.png',
+  '/campus/laundry-training.png',
+  '/campus/restaurant-training.png',
+  '/campus/housekeeping-training.png',
+  '/campus/campus-front-rain.jpg'
 ];
 
 export const recruiters = ['Taj', 'Oberoi', 'ITC Hotels', 'Marriott', 'Hyatt', 'Radisson', 'Lemon Tree', 'The Park', 'Holiday Inn', 'Accor', 'Hilton', 'Domino’s', 'KFC', 'Barbeque Nation', 'Cruise Lines', 'Resort Brands'];
@@ -124,13 +174,21 @@ export const testimonials = [
 ];
 
 export const faculty = [
-  { name: 'Indranil Roy Choudhury', title: 'Principal I/C', subject: 'Hospitality Leadership', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=85' },
-  { name: 'Senior Culinary Faculty', title: 'Faculty', subject: 'Food Production', image: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=800&q=85' },
-  { name: 'Food & Beverage Mentor', title: 'Faculty', subject: 'Restaurant Service', image: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=85' }
+  { name: 'Indranil Roy Choudhury', title: 'Principal I/C', subject: 'Hospitality Leadership', image: '/campus/optimized/classroom-md.jpg' },
+  { name: 'Senior Culinary Faculty', title: 'Faculty', subject: 'Food Production', image: '/campus/optimized/kitchen-md.jpg' },
+  { name: 'Food & Beverage Mentor', title: 'Faculty', subject: 'Restaurant Service', image: '/campus/optimized/restaurant-md.jpg' }
 ];
 
 export const faqs = [
   ['Who can apply for B.Sc. HHA?', 'Candidates who have passed Class 12 from a recognized board in any stream can apply.'],
   ['Is hostel available?', 'Limited hostel facilities are available with separate arrangements for boys and girls.'],
   ['Are placements supported?', 'Yes. The institute supports placement preparation and connects students with hotel, restaurant, cruise, and hospitality recruiters.']
+];
+
+export const notes = [
+  {
+    heading: 'Student Notes Will Appear Here',
+    subHeading: 'Admins can publish class notes from Strapi with a heading, sub heading, and PDF or Word attachment.',
+    file: null
+  }
 ];

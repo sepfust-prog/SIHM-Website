@@ -2,6 +2,7 @@ import { ChevronDown, Download } from 'lucide-react';
 import CourseCard from '../components/CourseCard';
 import CTASection from '../components/CTASection';
 import InquiryForm from '../components/InquiryForm';
+import PageHero from '../components/PageHero';
 import SEO from '../components/SEO';
 import SectionHeader from '../components/SectionHeader';
 import { courses } from '../data/siteData';
@@ -11,22 +12,25 @@ export default function Academics() {
   return (
     <>
       <SEO seo={pageSeo('Academic and Programs', 'B.Sc. HHA, Diploma in Food Production, and Diploma in Food & Beverage Service at SIHM Dimapur.', '/academic-and-programs')} />
-      <section className="navy-gradient pb-24 pt-40 text-white">
-        <div className="container-premium">
-          <SectionHeader eyebrow="Academic and Programs" title="Programs that combine NCHMCT standards with practical hospitality training" light />
+      <PageHero
+        eyebrow="Academic and Programs"
+        title="Programs that combine NCHMCT standards with practical hospitality training"
+        text="Choose a pathway built around classroom depth, hands-on labs, professional grooming, and hospitality career readiness."
+        image="/campus/restaurant-training.png"
+      />
+      <section className="page-band bg-[#f7f3eb]">
+        <div className="container-editorial">
+        <div className="grid gap-6 lg:grid-cols-3">{courses.map((course, index) => <div className="scroll-reveal" style={{ transitionDelay: `${index * 90}ms` }} key={course.title}><CourseCard course={course} /></div>)}</div>
         </div>
       </section>
-      <section className="container-premium py-16">
-        <div className="grid gap-6 lg:grid-cols-3">{courses.map((course) => <CourseCard course={course} key={course.title} />)}</div>
-      </section>
-      <section className="bg-mist py-16">
-        <div className="container-premium grid gap-10 lg:grid-cols-[1fr_420px]">
-          <div>
+      <section className="page-band bg-white">
+        <div className="container-editorial grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,420px)]">
+          <div className="min-w-0">
             <SectionHeader eyebrow="Curriculum" title="Eligibility, benefits, fees, hostel, and career scope" />
             <div className="mt-8 grid gap-4">
               {courses.map((course) => (
-                <details className="group rounded bg-white p-6 shadow-sm" key={course.title}>
-                  <summary className="flex cursor-pointer list-none items-center justify-between font-heading text-xl font-black text-navy">{course.title}<ChevronDown className="transition group-open:rotate-180" /></summary>
+                <details className="group editorial-card p-6" key={course.title}>
+                  <summary className="flex cursor-pointer list-none items-center justify-between font-editorial text-2xl font-semibold text-ink">{course.title}<ChevronDown className="transition group-open:rotate-180" /></summary>
                   <div className="mt-5 grid gap-5 text-slate-600 md:grid-cols-2">
                     <p><strong>Eligibility:</strong> {course.eligibility}</p>
                     <p><strong>Affiliated to:</strong> {course.affiliation}</p>
@@ -35,14 +39,17 @@ export default function Academics() {
                     <p className="md:col-span-2"><strong>Career Opportunities:</strong> {course.careers.join(', ')}</p>
                   </div>
                 </details>
+                
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              <button className="inline-flex items-center gap-2 rounded bg-navy px-5 py-3 font-bold text-white"><Download size={18} /> Download Brochure</button>
-              <button className="inline-flex items-center gap-2 rounded border border-navy px-5 py-3 font-bold text-navy"><Download size={18} /> Registration Form</button>
+              <button className="lr-button"><Download size={18} /> Download Brochure</button>
+              <button className="lr-button bg-transparent text-ink"><Download size={18} /> Registration Form</button>
             </div>
           </div>
-          <InquiryForm compact />
+          <div className="min-w-0 lg:sticky lg:top-28">
+            <InquiryForm compact />
+          </div>
         </div>
       </section>
       <CTASection />

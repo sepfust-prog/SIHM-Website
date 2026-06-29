@@ -1,7 +1,7 @@
 {
   "kind": "collectionType",
   "collectionName": "faculty_members",
-  "info": { "singularName": "faculty", "pluralName": "faculty", "displayName": "Faculty" },
+  "info": { "singularName": "faculty", "pluralName": "faculties", "displayName": "Faculty" },
   "options": { "draftAndPublish": true },
   "attributes": {
     "name": { "type": "string", "required": true },
