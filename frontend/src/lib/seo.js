@@ -58,7 +58,7 @@ export function pageSeo(title, description, path = '/', options = {}) {
         name: siteName,
         alternateName: 'SIHM Dimapur',
         url: `${siteUrl}/`,
-        logo: `${siteUrl}/sihm-logo.svg`,
+        logo: `${siteUrl}/sihm-logo.png`,
         image: defaultImage,
         email: 'contact@sihmdimapur.com',
         telephone: '+91-9233895656',

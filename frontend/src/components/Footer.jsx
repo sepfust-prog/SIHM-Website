@@ -22,8 +22,8 @@ export default function Footer() {
       <div className="container-editorial grid gap-10 py-14 md:grid-cols-[1.35fr_0.8fr_0.9fr_1fr]">
         <div>
           <div className="flex items-center gap-4">
-            <span className="grid h-20 w-32 place-items-center bg-white px-2 py-1">
-              <img className="max-h-full max-w-full object-contain" src="/sihm-logo.svg" alt="SIHM Dimapur" loading="lazy" decoding="async" />
+            <span className="grid h-20 w-32 place-items-center rounded-2xl bg-white/95 px-2 py-1 shadow-sm">
+              <img className="max-h-full max-w-full object-contain" src="/sihm-logo.png" alt="SIHM Dimapur" loading="lazy" decoding="async" />
             </span>
             <div>
               <strong className="block font-heading text-sm font-extrabold uppercase leading-tight tracking-[.08em]">State Institute of<br />Hotel Management, Dimapur</strong>
