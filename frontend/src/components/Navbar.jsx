@@ -24,76 +24,80 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${scrolled ? 'border-slate-200 bg-white/95 text-ink shadow-[0_12px_34px_rgba(15,23,42,.08)] backdrop-blur-md' : 'border-slate-200 bg-white/90 text-ink backdrop-blur-sm'}`}>
-      <div className={`hidden border-b py-1.5 text-[10px] font-semibold uppercase tracking-[.28em] transition xl:block ${scrolled ? 'border-slate-200 text-slate-500' : 'border-slate-200 text-slate-500'}`}>
-        <div className="container-nav flex justify-end gap-8">
-          <span>Dimapur, Nagaland</span>
-          <Link to="/contact-us" className="hover:text-ink/80">Contact</Link>
-          <Link to="/admissions" className="hover:text-ink/80">Admissions</Link>
+    <>
+      <header className={`sticky top-0 z-50 border-b transition-all duration-500 overflow-visible ${scrolled ? 'border-slate-200 bg-white/95 text-ink shadow-[0_12px_34px_rgba(15,23,42,.08)] backdrop-blur-md' : 'border-slate-200 bg-white/90 text-ink backdrop-blur-sm'}`}>
+        <div className={`hidden border-b py-1.5 text-[10px] font-semibold uppercase tracking-[.28em] transition xl:block ${scrolled ? 'border-slate-200 text-slate-500' : 'border-slate-200 text-slate-500'}`}>
+          <div className="container-nav flex justify-end gap-8">
+            <span>Dimapur, Nagaland</span>
+            <Link to="/contact-us" className="hover:text-ink/80">Contact</Link>
+            <Link to="/admissions" className="hover:text-ink/80">Admissions</Link>
+          </div>
         </div>
-      </div>
-      <nav className={`container-nav flex items-center gap-3 transition-all duration-500 ${scrolled ? 'min-h-[66px]' : 'min-h-[74px]'}`}>
-        <Link to="/" className="group flex min-w-0 flex-1 items-center gap-3 py-2 xl:w-[390px] xl:flex-none 2xl:w-[450px]" onClick={() => setOpen(false)} aria-label="SIHM Dimapur home">
-          <span className="grid h-14 w-[108px] shrink-0 place-items-center rounded-lg bg-white px-2 py-1 shadow-sm md:h-16 md:w-[126px]">
-            <img className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-[1.03]" src="/sihm-logo.png" alt="SIHM Dimapur logo" />
-          </span>
-          <span className="min-w-0 flex-1">
-            <span className="block font-heading text-[15px] font-bold uppercase leading-[1.05] tracking-[0.08em] sm:hidden text-ink">
-              SIHM Dimapur
+        <nav className={`container-nav flex items-center justify-between gap-3 transition-all duration-500 ${scrolled ? 'min-h-[66px]' : 'min-h-[74px]'}`}>
+          <Link to="/" className="group flex min-w-0 flex-none items-center gap-3 py-2 max-w-[420px]" onClick={() => setOpen(false)} aria-label="SIHM Dimapur home">
+            <span className="grid h-14 w-[108px] shrink-0 place-items-center rounded-lg bg-white px-2 py-1 shadow-sm md:h-16 md:w-[126px]">
+              <img className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-[1.03]" src="/sihm-logo.png" alt="SIHM Dimapur logo" />
             </span>
-            <span className="hidden text-wrap font-heading text-[12px] font-extrabold uppercase leading-[1.18] tracking-[0.09em] sm:block md:text-[14px] xl:text-[15px] 2xl:text-[16px] text-ink">
-              State Institute of<br className="hidden min-[420px]:block" /> Hotel Management
+            <span className="min-w-0 flex-1">
+              <span className="block font-heading text-[15px] font-bold uppercase leading-[1.05] tracking-[0.08em] sm:hidden text-ink">
+                SIHM Dimapur
+              </span>
+              <span className="hidden text-wrap font-heading text-[12px] font-extrabold uppercase leading-[1.18] tracking-[0.09em] lg:block md:text-[14px] xl:text-[15px] 2xl:text-[16px] text-ink">
+                State Institute of<br className="hidden min-[420px]:block" /> Hotel Management
+              </span>
+              <span className="mt-1 block truncate text-[10px] font-semibold uppercase tracking-[0.18em] sm:text-[11px] xl:mt-1.5 text-logoOrange">
+                Learn to Serve
+              </span>
             </span>
-            <span className="mt-1 block truncate text-[10px] font-semibold uppercase tracking-[0.18em] sm:text-[11px] xl:mt-1.5 text-logoOrange">
-              Learn to Serve
-            </span>
-          </span>
-        </Link>
-
-        <div className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:flex 2xl:gap-1">
-          {desktopNavItems.map((item) => (
-            <div className="group relative" key={item.label}>
-              <NavLink
-                to={item.path}
-                className={({ isActive }) => `relative flex items-center gap-1 whitespace-nowrap px-1.5 py-3 text-[10px] font-extrabold uppercase tracking-[0.12em] transition hover:text-slate-700 2xl:px-2.5 2xl:text-[11px] ${isActive ? 'text-gold' : 'text-ink'}`}
-              >
-                {item.label}
-                {item.children && <ChevronDown className="transition group-hover:rotate-180" size={14} />}
-                <span className={`absolute inset-x-3 bottom-1 h-px origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${scrolled ? 'bg-ink' : 'bg-slate-700'}`} />
-              </NavLink>
-              {item.children && (
-                <div className="invisible absolute left-1/2 top-full w-[min(560px,calc(100vw-48px))] -translate-x-1/2 translate-y-4 border border-slate-200 bg-white p-5 text-ink opacity-0 shadow-[0_24px_60px_rgba(15,23,42,.08)] transition duration-300 group-hover:visible group-hover:translate-y-1 group-hover:opacity-100">
-                  <p className="lr-eyebrow mb-4 text-slate-500">Explore {item.label}</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {item.children.map((child) => (
-                      <Link className="group/link border border-slate-200 bg-white px-4 py-4 text-sm font-semibold text-ink transition hover:border-ink" key={child.path} to={child.path}>
-                        {child.label}
-                        <span className="mt-2 block h-px w-8 bg-ink transition group-hover/link:w-16" />
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="ml-auto hidden w-[190px] shrink-0 items-center justify-end gap-3 xl:flex 2xl:w-[230px]">
-          <button className={`grid h-10 w-10 place-items-center border transition hover:opacity-70 ${scrolled ? 'border-black/20 text-ink' : 'border-white/28 text-white'}`} aria-label="Search">
-            <Search size={17} />
-          </button>
-          <Link className={`border px-4 py-3 text-[11px] font-extrabold uppercase tracking-[0.22em] transition hover:-translate-y-0.5 2xl:px-6 ${scrolled ? 'border-ink bg-ink text-white hover:bg-transparent hover:text-ink' : 'border-white bg-white text-ink hover:bg-transparent hover:text-white'}`} to="/admissions">
-            Apply Now
           </Link>
-        </div>
 
-        <button className={`ml-auto grid h-11 w-11 shrink-0 place-items-center border xl:hidden ${scrolled ? 'border-slate-200 text-ink' : 'border-slate-200 text-ink'}`} onClick={() => setOpen(!open)} aria-label="Toggle menu">
-          {open ? <X /> : <Menu />}
-        </button>
-      </nav>
+          <div className="hidden min-w-0 flex-1 items-center justify-center overflow-visible gap-0.5 xl:flex 2xl:gap-1">
+            <div className="flex min-w-0 items-center gap-0.5 whitespace-nowrap">
+              {desktopNavItems.map((item) => (
+                <div className="group relative" key={item.label}>
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) => `relative flex items-center gap-1 whitespace-nowrap px-1.5 py-3 text-[10px] font-extrabold uppercase tracking-[0.12em] transition hover:text-slate-700 2xl:px-2.5 2xl:text-[11px] ${isActive ? 'text-gold' : 'text-ink'}`}
+                  >
+                    {item.label}
+                    {item.children && <ChevronDown className="transition group-hover:rotate-180" size={14} />}
+                    <span className={`absolute inset-x-3 bottom-1 h-px origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${scrolled ? 'bg-ink' : 'bg-slate-700'}`} />
+                  </NavLink>
+                  {item.children && (
+                    <div className="invisible absolute left-1/2 top-full z-50 w-[min(560px,calc(100vw-64px))] -translate-x-1/2 translate-y-4 border border-slate-200 bg-white p-5 text-ink opacity-0 shadow-[0_24px_60px_rgba(15,23,42,.08)] transition duration-300 group-hover:visible group-hover:translate-y-1 group-hover:opacity-100">
+                      <p className="lr-eyebrow mb-4 text-slate-500">Explore {item.label}</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {item.children.map((child, index) => (
+                          <Link className="group/link border border-slate-200 bg-white px-4 py-4 text-sm font-semibold text-ink transition hover:border-ink" key={`${child.path}-${index}`} to={child.path}>
+                            {child.label}
+                            <span className="mt-2 block h-px w-8 bg-ink transition group-hover/link:w-16" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="hidden w-[190px] shrink-0 items-center justify-end gap-3 xl:flex 2xl:w-[230px]">
+            <button className={`grid h-10 w-10 place-items-center border transition hover:opacity-70 ${scrolled ? 'border-black/20 text-ink' : 'border-white/28 text-white'}`} aria-label="Search">
+              <Search size={17} />
+            </button>
+            <Link className={`border px-4 py-3 text-[11px] font-extrabold uppercase tracking-[0.22em] transition hover:-translate-y-0.5 2xl:px-6 ${scrolled ? 'border-ink bg-ink text-white hover:bg-transparent hover:text-ink' : 'border-white bg-white text-ink hover:bg-transparent hover:text-white'}`} to="/admissions">
+              Apply Now
+            </Link>
+          </div>
+
+          <button className={`ml-auto grid h-11 w-11 shrink-0 place-items-center border xl:hidden ${scrolled ? 'border-slate-200 text-ink' : 'border-slate-200 text-ink'}`} onClick={() => setOpen(!open)} aria-label="Toggle menu">
+            {open ? <X /> : <Menu />}
+          </button>
+        </nav>
+      </header>
 
       {open && (
-        <div className="fixed left-0 right-0 top-[76px] z-40 min-h-[calc(100vh-76px)] bg-white px-5 py-8 text-ink overflow-y-auto xl:hidden shadow-[0_20px_60px_rgba(15,23,42,.12)]">
+        <div className="xl:hidden border-t border-slate-200 bg-white px-5 pb-8 text-ink">
           <div className="mx-auto grid max-w-xl gap-2">
             {navItems.map((item) => (
               <div key={item.path} className="border-b border-slate-200 py-3">
@@ -118,6 +122,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

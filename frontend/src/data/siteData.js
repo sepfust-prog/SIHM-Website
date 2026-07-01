@@ -8,7 +8,9 @@ export const navItems = [
       { label: "Director's Message", path: '/about/directors-message' },
       { label: 'Faculty', path: '/faculty' },
       { label: 'Vision & Mission', path: '/about#vision-mission' },
-      { label: 'Infrastructure', path: '/facilities' }
+      { label: 'Infrastructure', path: '/facilities' },
+      { label: 'Campus Life', path: '/gallery' },
+      { label: 'Facilities', path: '/facilities' }
     ]
   },
   {
@@ -17,13 +19,11 @@ export const navItems = [
     children: [
       { label: 'Degree Programs', path: '/academic-and-programs#degree-programs' },
       { label: 'Diploma Programs', path: '/academic-and-programs#diploma-programs' },
-      { label: 'Short Term & Certificate Courses', path: '/academic-and-programs#short-term-certificate-courses' }
+      { label: 'Short Term & Certificate Courses', path: '/academic-and-programs#short-term-certificate-courses' },
+      { label: 'Placements', path: '/placements' },
+      { label: 'Students', path: '/students' }
     ]
   },
-  { label: 'Campus Life', path: '/gallery' },
-  { label: 'Facilities', path: '/facilities' },
-  { label: 'Placements', path: '/placements' },
-  { label: 'Students', path: '/students' },
   { label: 'News & Events', path: '/news-events' },
   { label: 'Admissions', path: '/admissions' },
   { label: 'Contact', path: '/contact-us' }
